@@ -139,7 +139,7 @@ public  void resetPassword(@Valid @RequestBody ResetPasswordRequest request){
     public ResponseEntity<?> logout(@RequestHeader(value = "Authorization", required = false) String authHeader) {
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String jwtToken = authHeader.substring(7); // Extract the token
-            jwtUtil.addToBlacklist(jwtToken); // Add token to blacklist
+            jwtUtil.addToBlacklist(jwtToken); // Add token 
         }
 
         ResponseCookie cookie = ResponseCookie.from("JWT", "")
